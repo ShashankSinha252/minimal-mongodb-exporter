@@ -1,0 +1,14 @@
+version: '3.7'
+
+services:
+  client:
+    image: golang:1.10.2-alpine
+    hostname: client
+    container_name: client
+    command: ["tail", "-f", "/dev/null"]
+    volumes:
+    - ./bin:/usr/local/bin/
+  mongodb:
+    image: mongo:${MONGODB_VERSION}
+    hostname: mongodb
+    container_name: mongodb
